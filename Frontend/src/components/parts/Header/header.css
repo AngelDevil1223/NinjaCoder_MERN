@@ -1,0 +1,152 @@
+.header {
+	width: 100%;
+	background-color: rgb(191, 191, 191);
+	opacity: 0.9;
+}
+.main_container {
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+}
+.logo_div {
+	width: 15%;
+	display: inline-block;
+}
+.main_logo {
+	width: 100%;
+}
+.he_an_div {
+	width: 70%;
+	height: 15%;
+	display: inline-block;
+}
+.main_h_img {
+	width: 100%;
+	height: 70%;
+}
+.header_tab {
+	width: 370px;
+	margin: auto;
+}
+.tab {
+	display: inline-block;
+	border: none;
+	background-color: rgb(191, 191, 191);
+	margin-right: 10px;
+	font-size: 20px;
+	border-radius: 10px;
+}
+.tab:hover {
+	background-color: rgb(233, 233, 233);
+}
+.log_out {
+	display: inline-block;
+	padding: 20px;
+	padding-bottom: 0px;
+	padding-top: 10%;
+	width: 15%;
+}
+.tab_1 {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.user_id_input {
+	background-color: rgb(191, 191 , 191);
+	opacity: 0.9;
+	border: none;
+	font-size: 14px;
+	display: inline-block;
+	width: 100%;
+}
+.user_avatar .logbtndiv {
+	display: none;
+	bottom: 10%;
+	font-size: 18px;
+	border-radius: 10px;
+	border: none;
+	padding: 10px;
+	position: absolute;
+	z-index: 1;
+	top: 7%;
+}
+.user_avatar:hover .logbtndiv {
+	display: block;
+}
+.user_avatar {
+	width: 40px;
+	display: inline-block;
+}
+.user_div {
+	width: 100px;
+}
+@media only screen and (max-width: 1000px) {
+	.logo_div {
+		width: 20%;
+	}
+	.he_an_div {
+		width: 75%;
+	}
+  }
+
+@media only screen and (max-width: 845px) {
+	.logo_div {
+		width: 80px;
+	}
+	.main_logo {
+		width: 80px;
+	}
+	.he_an_div {
+		width: 65%;
+	}
+	.log_out {
+		padding-left: 10px;
+		padding-top: 30px;
+	}
+	.tab {
+		font-size: 14px;
+	}
+	.header_tab {
+		width: 300px;
+	}
+}
+@media only screen and (max-width: 605px) {
+	.main_container {
+		width: 100%;
+		padding: 20px;
+	}
+}
+@media only screen and (max-width: 551px) {
+	.main_container {
+		width: 375px !important;
+		padding: 5px;
+	}
+	.he_an_div {
+		width: 200px;
+	}
+	.header_tab {
+		width: 200px;
+	}
+	.tab {
+		font-size: 12px;
+		margin-right: 0px;
+		padding: 2px;
+	}
+	.log_out {
+		width: 50px;
+	}
+	.logout_btn {
+		font-size: 12px;
+		padding: 10px;
+	}
+	.user_avatar {
+		width: 20px;
+	}
+	.user_div {
+		width: 60px;
+	}
+	.user_avatar .logbtndiv {
+		top: 5%;
+	}
+}
+

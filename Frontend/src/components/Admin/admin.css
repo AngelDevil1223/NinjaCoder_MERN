@@ -1,0 +1,306 @@
+.mainbody1 {
+  background-image: url("http://localhost:3000/images/flowback/1.jpg");
+  height: 100vh;
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
+  transition: 1000ms;
+}
+.adminheader {
+  background-color: black;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: row;
+}
+.adminlogodiv {
+  display: inline-block;
+  background-image: url("http://localhost:3000/images/girlavatar.png");
+  width: 200px;
+  height: 100px;
+}
+.adminlogoimg {
+  width: 100%;
+}
+.adminheaderdiv {
+  display: inline-block;
+  margin-left: 250px;
+  font-size: 40px;
+  color: white;
+  margin-top: 25px;
+  position: absolute;
+}
+.contentbody {
+  width: 100%;
+  height: 85.5vh;
+  display: flex;
+  flex-direction: row;
+}
+/* The side navigation menu */
+.sidebar1 {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  overflow: auto;
+  display: inline-block;
+  height: 100%;
+  opacity: 0.6;
+}
+/* Sidebar links */
+.sidebar1 a {
+  display: block;
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 25px;
+}
+/* Active/current link */
+.sidebar1 a.active {
+  background-color: black;
+  color: white;
+}
+/* Links on mouse-over */
+.sidebar1 a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.postdiv {
+  width: 150px;
+  margin-bottom: 5px;
+  margin-right: 100px;
+  margin: auto;
+}
+.postbtn {
+  background-image: url("http://localhost:3000/images/post.png");
+  color: white;
+  font-size: 25px;
+  padding:15px;
+  margin: auto;
+  width: 150px;
+  height: 70px;
+}
+.postimg {
+  border: 1px solid white;
+  border-radius: 5px; 
+  box-shadow: 3px 3px 3px #aaaaaa;
+  opacity: 5;
+}
+.postimg:hover {
+  transform: scale3d(1.1, 1 , 1.1);
+  transition: 500ms;
+}
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+.content1 {
+  padding: 1px 16px;
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+.content2 {
+  padding: 1px 16px;
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+#content2 {
+  display: none;
+}
+.container4 {
+  width: 90%;
+  margin-left: 30px;
+  overflow: hidden; 
+}
+.posttitle {
+  width: 80%;
+  font-size: 20px;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 5px;
+  margin-left: 35px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.titlelabel {
+  font-size: 25px;
+  color: white;
+  margin-left: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.deslabel {
+  font-size: 25px;
+  color: white;
+}
+.modalpostdiv {
+  width: 150px;
+  margin: auto;
+}
+.task_skill_area {
+  font-size: 20px;
+  border-radius: 5px;
+  background: #aaaaaa;
+  padding: 15px;
+}
+.modalpostbtn {
+  background-color: black;
+  width: 150px;
+  height: 70px;
+  margin-top: 30px;
+  border-radius: 10px;
+  color: white;
+  font-size: 40px;
+  box-shadow: 2px 2px 2px #444444;
+  margin-bottom: 30px;
+}
+#postprice_input {
+  text-align: right;
+}
+.skills {
+   width: 80%;
+  font-size: 20px;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 5px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.content1header {
+  width: 650px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 350px;
+}
+.pagenumbtngroup {
+
+  width: 260px;
+  margin: auto;
+}
+.pageicon {
+  width: 65px;
+  height: 65px;
+  display: inline-block;
+  border: none !important;
+  box-shadow: 2px #dddddd;
+}
+.pageicon:hover {
+  transform: translateY(-8px);
+}
+.firstbtn {
+  background-image: url("http://localhost:3000/images/first.png");
+  border: none;
+}
+.prevbtn {
+  background-image: url("http://localhost:3000/images/prev.png");
+  border: none;
+}
+.winneravatar {
+  width: 40px;
+}
+.nextbtn {
+  background-image: url("http://localhost:3000/images/next.png");
+  border: none;
+}
+.lastbtn {
+  background-image: url("http://localhost:3000/images/last.png");
+  border: none;
+}
+.footerdiv {
+  width: 100%;
+}
+.currentBiderAvatar {
+  width: 60px;
+}
+.currentBidername {
+  display: inline-block;
+}
+#bidermodalheader {
+  background-color: #aaaaaa;
+}
+.adminlogoutbtn {
+  font-size: 25px;
+  border-radius: 10px 3px 10px 3px;
+  padding: 10px;
+  float: right;
+  color: black;
+  margin-left: 50px;
+}
+select {
+  color: red;
+  height: 30px;
+}
+.avatarshow {
+  width: 60px;
+  margin-left: 100px;
+}
+.avatarpriceshow {
+  display: inline-block;
+  margin-left: 30px;
+  color: white;
+}
+.feedbacklabel {
+  margin-top: 100px;
+}
+.feedbackdiv {
+  width: 150px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.Report {
+  font-size: 25px;
+  padding: 15px;
+  color: white;
+  background-color: #333333;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 3px 3px 3px #dddddd;
+  margin-bottom: 30px;
+}
+#description_textarea {
+  margin-bottom: 50px;
+}
+@media screen and (max-width: 915px) {
+  .adminlogodiv {
+    width: 150px;
+  }
+  .sidebar {
+    width: 150px;
+  }
+  .adminheaderdiv {
+    font-size: 25px;
+    margin-top: 35px;
+  }
+}
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+@media screen and (max-width: 655px) {
+  .adminlogodiv {
+    width: 150px;
+  }
+  .adminheaderdiv {
+    margin-top: 20px;
+  
+  }
+}
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  .adminheaderdiv {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+}

@@ -1,1 +1,2 @@
-# NinjaCoder_MERN
+# Ninja_MERN
+NinjaCoder Site React Version.

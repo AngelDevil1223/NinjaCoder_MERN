@@ -1,0 +1,351 @@
+.tr {
+	text-align: center;
+	font-size: 20px;
+	padding: 10px;
+	color: white;
+	z-index: 2;
+}
+.td {
+	padding: 10px;
+}
+.container2 {
+	box-sizing: border-box;
+	width: 75%;
+	margin: auto;
+	height: 75vh;
+	overflow: auto;
+}
+th {
+	font-size: 25px;
+	color: white;
+	font-family: sans-serif;
+	text-align: center;
+	padding: 10px;
+}
+tr:nth-child(even){background-color: rgb(191, 191, 191);}
+tr:nth-child(odd){background-color: #888888;}
+tr:hover {
+	background-color: white;
+	color: #666666;
+}
+table {
+	opacity: 0.8;
+	width: 100% !important;
+}
+.tableheader {
+	height: 40px;
+	background-color: black !important;
+}
+.bider_avatar {
+	width: 60px;
+}
+.modal1 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0 , 0, 0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  border: none;
+}
+/* Modal Content */
+.modal-content1 {
+  position: relative;
+  background-color: rgb(191 , 191,  191);
+  margin: auto;
+  padding: 0;
+  border-radius: 20px 20px 15px 15px;
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 1s;
+  animation-name: animatetop;
+  animation-duration: 1s
+}
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+/* The Close Button */
+.close {
+  color: grey;
+  float: right;
+  font-size: 80px;
+  font-weight: bold;
+  opacity: 0.9 !important;
+}
+h2 {
+	margin-left: 50px;
+}
+.close:hover,
+.close:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header1 {
+  padding: 2px 16px;
+  background-color: black;
+  color: white;
+}
+.modal-body1 {padding: 2px 16px; background-color: grey;}
+h1 {
+  font-size: 40px;
+  line-height: 0.8em;
+  color: rgba(255,255,255,0.2);
+}
+	button:focus,
+	input:focus,
+	textarea:focus,
+	select:focus {
+  outline: none; 
+}
+
+.tabs {
+  display: block;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0;
+  overflow: hidden;
+  background-color: grey;
+}
+  .tabs [class^="tab"] label,
+  .tabs [class*=" tab"] label {
+    color: #cccccc;
+    cursor: pointer;
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1em;
+    padding: 2rem 0;
+    text-align: center; 
+}
+.tab-2 {
+	width: 100%; 
+}
+.tabs .tab-2 [type="radio"] + div {
+  width: 200%;
+  margin-left: 200%; 
+ }
+#tab2 {
+	display: none;
+	height: 70vh;
+	overflow: auto;
+	transition: 1000ms;
+}
+.labeldiv {
+	width: 100%;
+}
+.detaildiv {
+	width: 50%;
+	display: inline-block;
+}
+.listdiv {
+	width: 50%;
+	display: inline-block;
+}
+.label {
+	font-size: 2.0em;
+	margin: auto;
+}
+#detaillabel {
+	font-size: 30px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+.detailauto {
+	width: 154px;
+	display: inline-block;
+	margin: auto;
+}
+.detaillavel {
+	border-bottom: 3px solid white;
+}
+.bidlisttable {
+	margin-top: 20px;
+}
+textarea {
+	width: 100%;
+	margin: auto;
+	font-size: 16px;
+	height: 150px;
+	overflow: auto;
+	border: none;
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 2px 2px 2px #dddddd;
+	padding-left: 5px;
+	padding-top: 3px;
+}
+.task_des_area {
+	opacity: 0.7;
+	color: black;
+	padding: 10px 20px 10px 20px;
+	margin-right: 5px;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 18px;
+	margin-top: 20px;
+	background-color: white;
+	height: 150px;
+	overflow: auto;
+}
+.task_bid_area {
+	padding: 10px 15px 10px 15px;
+	border-radius: 5px;
+}
+.task_bid_div {
+	margin-top: 30px;
+}
+.deadline_label {
+	display: inline-block;
+	font-size: 20px;
+	color: white;
+	margin-right: 20px;
+}
+.deadline_input {
+	border-radius: 5px;
+	height: 30px;
+	border: 1px solid grey;
+	margin-right: 30px;
+	padding-left: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 170px;
+	font-size: 15px;
+}
+h4 {color: white;}
+.price_label {
+	display: inline-block;
+	font-size: 20px;
+	color: white;
+	margin-right: 20px;
+}
+.price_input {
+	border-radius: 5px;
+	font-size: 18px;
+	height: 30px;
+	padding-left: 10px;
+	border: 1px solid grey;
+	width: 170px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+}
+.deadline_div {
+	margin-top: 20px;
+	display: inline-block;
+}
+.price_div {
+	display: inline-block;
+}
+.bid_btn {
+	margin-top: 10px;
+	font-size: 25px;
+	background-color: #aaaaaa;
+	color: white;
+	border:none;
+	border-radius: 3px 3px 3px 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	box-shadow: 2px 2px #bbbbbb;
+	margin-bottom: 10px;
+}
+.bid_btn:hover {
+	background-color: #cccccc;
+	color: #555555;
+	transform: translate(3px , 3px);
+}
+.tabs {
+	width: 100%;
+}
+.download {
+	font-size: 25px;
+	color: white;
+	margin-left: 50px;
+}
+/*.notbid {
+	position: absolute;
+	margin-top: -100px;
+	z-index: 1;
+}*/
+.rowcnt {
+	font-size: 20px;
+	color: white;
+}
+.ChangePagesize {
+	width: 70px;
+	font-size: 20px;
+	padding-left: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 20px;
+}
+
+@media screen and (max-width: 1440px) {
+	.container2 {
+		height: 66vh;
+	}
+}
+
+@media only screen and (max-width: 738px) {
+	.container2 {
+		width: 100%;
+	}
+
+	.tableth {
+		font-size: 18px;
+	}
+	.tr {
+		font-size: 15px;
+	}
+}
+@media only screen and (max-width: 659px) {
+	.price_label {
+		margin-right: 35px;
+	}
+	.deadline_input {
+		margin-right: 0px;
+	}
+}
+@media only screen and (max-width: 501px) {
+	.tableth {
+		font-size: 16px;
+		padding: 3px;
+	}
+	.tr {
+		font-size: 14px;
+		padding: 3px;
+	}
+	.td {
+		padding: 3px;
+	}
+}
+@media only screen and (max-width: 422px) {
+	.container2 {
+		width: 100%;
+	}
+	.tableth {
+		font-size: 12px;
+	}
+	.tr {
+		font-size: 11px;
+	}
+	.td {
+		padding: 1px;
+	}
+}

@@ -1,0 +1,142 @@
+body {
+	font-family: arial;
+	margin: 0px;
+}
+.Form {
+	width: 570px;
+	background-color: rgb(191,191,191);
+	margin: auto;
+	margin-top: 150px;
+	border-radius: 30px 5px 30px 5px;
+	padding-bottom: 20px;
+	box-shadow: 8px 8px 8px #e6e6e6;
+}
+.Form_p {
+	color: black;
+	font-size: 50px;
+	width: 110px;
+	margin: auto;
+	font-family: Segoe UI;
+	font-weight: bold;
+}
+.Form_p1 {
+	color: black;
+	font-size: 50px;
+	width: 160px;
+	margin: auto;
+	font-family: Segoe UI;
+	font-weight: bold;
+}
+.Form_text {
+	margin-bottom: 30px;
+}
+.Form_content {
+	width: 500px;
+	height: 80px;
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+}
+.Form_id {
+	font-size: 45px;
+	font-family: serif;
+	font-weight: bold;
+	color: #eeeeee;
+}
+.Form_input {
+	background-color: black;
+	font-size: 40px;
+	height: 60px;
+	width: 90%;
+	margin-top: 8px;
+	margin-left: 10px;
+	border-radius: 5px;
+	padding-left: 10px;
+	color: white;
+	font-family: Segoe UI;
+}
+.Form_footer {
+	width: 500px;
+	margin: auto;
+}
+.Form_footer1 {
+	width: 450px;
+	margin: auto;
+}
+.toimg {
+	width: 350px;
+	height: 60px;
+}
+.toimg1 {
+	width: 300px;
+	height: 50px;
+}
+.hereimg {
+	width:  120px;
+	height: 55px;
+	margin-top: 5px;
+}
+.hereimg1 {
+	width: 110px;
+	height: 50px;
+	margin-top: 5px;
+}
+.hereimg:hover {
+	width: 124px;
+	height: 59px;
+}
+.hereimg1:hover {
+	width: 114px;
+	height: 54px;
+}
+.Form_img1 {
+	width: 350px;
+	margin: auto;
+}
+.avatar_div {
+	width: 90px;
+	margin: auto;
+	display: none;
+}
+
+.Form_img {
+	height: 50px;
+	width: 185px;
+	background-image: url(http://localhost:3000/images/comein.png);
+	margin: auto;
+}
+.Form_img:hover {
+	cursor: pointer;
+	background-image: url(http://localhost:3000/login1.png);
+	margin: auto;
+	width: 75px;
+	height: 75px;
+}
+.nearimg3 {
+	font-size: 45px;
+	color: #dddddd;
+	font-weight: bold;
+	display: inline-block;
+}
+.Form_img3 {
+	width: 176px;
+	height: 57px;
+	margin: auto;
+	background-image: url(http://localhost:3000/images/register3.png);
+}
+.Form_img3:hover {
+	background-image: url(http://localhost:3000/images/register4.png);
+}
+.Form_avatar3 {
+	width: 80px;
+}
+.mainbody {
+	background-image: url("../../public/images/mainback.png");
+	height: 100vh;
+	background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+}
+#err_id {
+	width: 400px;
+}
