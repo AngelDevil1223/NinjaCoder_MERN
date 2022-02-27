@@ -5,6 +5,7 @@
 }
 .main_container {
 	width: 80%;
+	height: 130px;
 	display: flex;
 	flex-direction: row;
 	margin: auto;
@@ -17,8 +18,8 @@
 	width: 100%;
 }
 .he_an_div {
-	width: 70%;
-	height: 15%;
+	width: 60%;
+
 	display: inline-block;
 }
 .main_h_img {
@@ -44,7 +45,7 @@
 	display: inline-block;
 	padding: 20px;
 	padding-bottom: 0px;
-	padding-top: 10%;
+	padding-top: 6%;
 	width: 15%;
 }
 .tab_1 {
@@ -113,7 +114,7 @@
 @media only screen and (max-width: 605px) {
 	.main_container {
 		width: 100%;
-		padding: 20px;
+		padding: 10px;
 	}
 }
 @media only screen and (max-width: 551px) {
