@@ -15,8 +15,11 @@
 	height: 75vh;
 	overflow: auto;
 }
+.containertable {
+	width: 120%;
+}
 th {
-	font-size: 24px;
+	font-size: 20px;
 	color: white;
 	font-family: sans-serif;
 	text-align: center;
@@ -53,6 +56,9 @@ table {
   background-color: rgb(0 , 0, 0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   border: none;
+}
+.container3 {
+	height: 70vh;
 }
 /* Modal Content */
 .modal-content1 {
@@ -154,10 +160,22 @@ h1 {
 .detaildiv {
 	width: 50%;
 	display: inline-block;
+	height: 38px;
+	background-color: #808080;
+	border: 3px solid #505050;
+	border-bottom: none;
+	font-size: 30px;
+	color: white;
+	text-align: center;
 }
 .listdiv {
 	width: 50%;
 	display: inline-block;
+	height: 38px;
+	font-size: 27px;
+	color: white;
+	text-align: center;
+	border: 3px solid #505050;
 }
 .label {
 	font-size: 2.0em;
@@ -175,9 +193,11 @@ h1 {
 }
 .detaillavel {
 	border-bottom: 3px solid white;
+	border: 1px solid black;
 }
 .bidlisttable {
 	margin-top: 20px;
+	border: 1px solid black;
 }
 textarea {
 	width: 100%;
@@ -285,21 +305,34 @@ h4 {color: white;}
 	z-index: 1;
 }*/
 .rowcnt {
-	font-size: 20px;
+	font-size: 22px;
 	color: white;
 }
 .ChangePagesize {
 	width: 70px;
-	font-size: 20px;
+	font-size: 15px;
 	padding-left: 15px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	margin-left: 20px;
+}
+#tickettabletr {
+	font-size: 16px;
+}
+#tickettableth th {
+	font-size: 18px;
+}
+.winner_avatar {
+	width: 50px;
+}
+#resulttable th , tr{
+	background-color: black;
+	text-align: center;
 }
 
 @media screen and (max-width: 1440px) {
 	.container2 {
-		height: 60vh;
+		height: 65vh;
 	}
 }
 

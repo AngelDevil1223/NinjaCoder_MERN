@@ -1,4 +1,4 @@
-import { GET_TICKETS , GET_LEADERS , GET_AVATARS , GET_LOGIN , LOGOUT , GET_BIDERS , GET_PAGES , GET_REQUESTS} from '../actions/types';
+import { GET_TICKETS , GET_LEADERS , GET_AVATARS , GET_LOGIN , LOGOUT , GET_BIDERS , GET_PAGES , GET_REQUESTS, GET_FREELANCERS } from '../actions/types';
 
 
 const initialState = {
@@ -9,6 +9,7 @@ const initialState = {
 	pages: [],
 	biders: [],
 	asklists: [],
+	freelancers: [],
 	item: {}
 }
 
@@ -55,6 +56,12 @@ export default function(state = initialState , action) {
 				...state,
 				asklists: action.payload
 			}
+		case GET_FREELANCERS: {
+			return {
+				...state,
+				freelancers: action.payload
+			}
+		}
 		default:
 			return state;
 	}

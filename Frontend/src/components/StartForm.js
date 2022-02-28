@@ -31,10 +31,11 @@ class StartForm extends Component {
         .then(result => {
           localStorage.setItem('currentUser_avatar', result.data.Leader_avatar);
           window.location.href='/Main/main';
+          localStorage.setItem('currentUser_avatar', result.data.Leader_avatar);
         })
         .catch(err=>console.log(err));
   }
-  login(e) {
+  login() {
       const user_id = this.state.user_id;
       axios.post('http://localhost:5000/freelancing/api/auth/login', { user_id: user_id})
       .then(res=> {
@@ -47,6 +48,7 @@ class StartForm extends Component {
           }
         })
       .catch(err => {
+        alert("error");
         let str1 = String(err);
         str1 = str1.slice(-1);
         errinput = document.getElementById("err_id");
@@ -86,7 +88,7 @@ class StartForm extends Component {
             <img className="toimg" src="./images/register_png1.png" alt="loading"/>
             <img className="hereimg" onClick={()=> window.location.href='/register'} src="./images/register_png2.png" alt="loading" />
           </div>
-          <div className="Form_img" onClick={this.login}>
+          <div className="Form_img" onClick={()=>{this.login()}}>
             
           </div>
       </div>

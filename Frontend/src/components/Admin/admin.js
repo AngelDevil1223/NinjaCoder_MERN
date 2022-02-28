@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getTickets , getBiders , getPages , getAvatars , getRequests} from '../../actions/postActions';
+import { getTickets , getBiders , getPages , getAvatars , getRequests , getFreelancers} from '../../actions/postActions';
 import axios from 'axios';
 import "./admin.css";
 
 var dir = [
   "http://localhost:3000/images/flowback/1.jpg",
-  "http://localhost:3000/images/flowback/9.jpg",
   "http://localhost:3000/images/flowback/2.jpg",
-  "http://localhost:3000/images/flowback/7.jpg",
   "http://localhost:3000/images/flowback/3.jpg",
-  "http://localhost:3000/images/flowback/6.jpg",
   "http://localhost:3000/images/flowback/4.jpg",
-  "http://localhost:3000/images/flowback/8.jpg",
   "http://localhost:3000/images/flowback/5.jpg",  
 ] ;
 var i = 0;
@@ -43,6 +39,10 @@ class admin extends Component {
     this.onFileChange = this.onFileChange.bind(this);
     this.onSubmit =  this.onSubmit.bind(this);
     this.Report = this.Report.bind(this);
+    this.onEdit = this.onEdit.bind(this);
+    this.onSave = this.onSave.bind(this);
+    this.UploadAvatarevent = this.UploadAvatarevent.bind(this);
+    this.Uploadavatar = this.Uploadavatar.bind(this);
 
     this.state = {
       currentTitle: "",
@@ -76,6 +76,70 @@ class admin extends Component {
   componentWillReceiveProps(nextProps) {
 
   }
+
+  UploadAvatarevent() {
+    var avapostdata = {};
+    var avapath = document.getElementById("ava_path").value;
+    avapath = avapath.slice(12);
+    avapostdata.ava_url = "http://localhost:3000/images/Avatar/" + avapath;
+    avapostdata.ava_budget = document.getElementById("ava_price").value;
+    avapostdata.ava_level = document.getElementById("ava_level").value;
+    axios.post("http://localhost:5000/freelancing/api/insert/avatars", avapostdata).then(res=>{
+
+      this.props.getAvatars();
+      var modal6 = document.getElementById("myModal6");
+      modal6.style.display = "none";
+    })
+  }
+
+  Uploadavatar() {
+    var modal6 = document.getElementById("myModal6");
+    var span = document.getElementsByClassName("close")[5];
+
+    modal6.style.display = "block";
+
+    span.onclick = function() {
+      modal6.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal6) {
+        modal6.style.display = "none";
+      }
+    }
+  }
+  onSave(id) {
+    var input = document.getElementById(id);
+    var editinput = document.getElementById(id + '1');
+    var select = document.getElementById(id + '2');
+    var editselect = document.getElementById(id + '3');
+    input.setAttribute('style',"display: block; margin-left: 10%;");
+    select.setAttribute('style', "display:block; margin-left: 35%;");
+    editinput.setAttribute('style',"display:none; border: 3px solid red;");
+    editselect.setAttribute('style',"display:none;");
+    var updatelancerdata = {};
+    updatelancerdata._id = id;
+    updatelancerdata.user_id = editinput.value;
+    updatelancerdata.access = editselect.value;
+    axios.post("http://localhost:5000/freelancing/api/update/Authuser" , updatelancerdata).then(res=>{
+      this.props.getFreelancers();
+    })
+  }
+
+  onEdit(id) {
+    var input = document.getElementById(id);
+    var editinput = document.getElementById(id + '1');
+    var select = document.getElementById(id + '2');
+    var editselect = document.getElementById(id + '3');
+    input.setAttribute('style',"display: none;");
+    select.setAttribute('style', "display:none;");
+    editinput.setAttribute('style',"display:block; border: 3px solid red;");
+    editselect.setAttribute('style',"display:block;");
+    editinput.value = input.value;
+    editselect.value = select.value;
+  }
+
+
 
   Report() {
     var Reportdata = {};
@@ -127,7 +191,7 @@ class admin extends Component {
       return;
     else {
       var modal = document.getElementById("myModal4");
-      var span = document.getElementsByClassName("close")[3];
+      var span = document.getElementsByClassName("close")[4];
 
       modal.style.display = "block";
 
@@ -295,6 +359,10 @@ class admin extends Component {
       axios.post("http://localhost:5000/freelancing/api/ticket/post", postdata).then(res=> {
         modal1.setAttribute("style", "display: none;");
         this.props.getTickets();
+        var maininfo = {};
+        maininfo.pagesize = 5;
+        maininfo.pagenum = 1;
+        this.props.getPages(maininfo);
       }).catch(err => {
         alert(err);
       })
@@ -318,8 +386,8 @@ class admin extends Component {
       }
   }
   myFunction() {
-    if(i > 8)
-      i = i % 9;
+    if(i > 4)
+      i = i % 5;
     document.getElementById("mainbody1").setAttribute("style", "background-image: url("+ dir[i] +")");
     i++;
   }
@@ -356,21 +424,36 @@ class admin extends Component {
   onClick(flag) {
     var content1 = document.getElementById("content1");
     var content2 = document.getElementById("content2");
+    var content3 = document.getElementById("content3");
     var ticketa = document.getElementById("ticketa");
-    var avatara = document.getElementById("avatara");    
+    var avatara = document.getElementById("avatara");  
+    var freea = document.getElementById("freea");  
 
     switch(flag) {
       case 1:
         content1.setAttribute("style", "display: inline-block;");
         content2.setAttribute("style", "display: none;");
+        content3.setAttribute("style", "display: none;");
         ticketa.setAttribute("style", "background-color: black ; color: white;");
-        avatara.setAttribute("style", "background-color: #cccccc; color: white;"); 
+        avatara.setAttribute("style", "background-color: #cccccc; color: white;");
+        freea.setAttribute("style", "background-color: #cccccc; color: white;");
         break;
       case 2:
         this.props.getAvatars();
         content2.setAttribute("style", "display: inline-block;");
         content1.setAttribute("style", "display: none;");
+        content3.setAttribute("style", "display: none;");
         avatara.setAttribute("style", "background-color: black ; color: white;");
+        ticketa.setAttribute("style", "background-color: #cccccc; color: white;");
+        freea.setAttribute("style", "background-color: #cccccc; color: white;");
+        break;
+      case 3:
+        this.props.getFreelancers();
+        content3.setAttribute("style", "display: inline-block;");
+        content1.setAttribute("style", "display: none;");
+        content2.setAttribute("style", "display: none;");
+        avatara.setAttribute("style", "background-color: #cccccc; color: white;"); 
+        freea.setAttribute("style", "background-color: black ; color: white;");
         ticketa.setAttribute("style", "background-color: #cccccc; color: white;"); 
         break;
     }
@@ -380,57 +463,81 @@ class admin extends Component {
 
     var result = Object.values(this.props.pages);
     const ticketItems = result.map(ticket => (
-        <tr className="tr" key={ticket._id} onClick={() => { this.selectTask(ticket._id , ticket.ticket_status)}} >
-          <td className="td"> {ticket.ticket_name} </td>
-          <td className="td"> {ticket.ticket_skills} </td>
-          <td className="td"> {ticket.ticket_price} </td>
-          <td className="td"> {ticket.ticket_deadline} </td>
-          <td className="td"> <select id={ticket._id} value={ticket.ticket_status} onChange={()=> {this.ChangeSelect(ticket._id , ticket.ticket_winner)}}>
+        <tr className="tr1" key={ticket._id} onClick={() => { this.selectTask(ticket._id , ticket.ticket_status)}} >
+          <td className="td1" id="admintabletd"> {ticket.ticket_name} </td>
+          <td className="td1" id="admintabletd"> {ticket.ticket_skills} </td>
+          <td className="td1" id="admintabletd"> {ticket.ticket_price} </td>
+          <td className="td1" id="admintabletd"> {ticket.ticket_deadline} </td>
+          <td className="td1" id="admintabletd"> <select id={ticket._id} value={ticket.ticket_status} onChange={()=> {this.ChangeSelect(ticket._id , ticket.ticket_winner)}}>
                                 <option value="Not Assigned">Not Assigned</option>
                                 <option value="Assigned">Assigned</option>
                                 <option value="Progressing">Progressing</option>
                                 <option value="InComplete">InComplete</option>
                                 <option value="Complete">Complete</option>
                               </select></td>
-          <td className="td"> <img className="winneravatar" src={ticket.winner_avatar} alt="loading..." />{ticket.ticket_winner} </td>
-          <td className="td"> {ticket.ticket_budget} </td>
-          <td className="td"> {ticket.winner_deadline} </td>
+          <td className="td1" id="admintabletd"> <img className="winneravatar" src={ticket.winner_avatar} alt="loading..." />{ticket.ticket_winner} </td>
+          <td className="td1" id="admintabletd"> {ticket.ticket_budget} </td>
+          <td className="td1" id="admintabletd"> {ticket.winner_deadline} </td>
         </tr>
       ));
     const biderItems = this.props.biders.map(bider => (
-        <tr className="tr" key={bider._id} onClick={()=>{this.selectBider(bider)}} >
-          <td className="td"><img className="bider_avatar" src={bider.bider_url} alt="loading..." /> {bider.bider_id}  </td>
-          <td className="td"> {bider.bid_price} </td>
-          <td className="td"> {bider.bid_deadline} </td>
+        <tr className="tr1" key={bider._id} onClick={()=>{this.selectBider(bider)}} >
+          <td className="td1"><img className="bider_avatar" src={bider.bider_url} alt="loading..." /> {bider.bider_id}  </td>
+          <td className="td1"> {bider.bid_price} </td>
+          <td className="td1"> {bider.bid_deadline} </td>
         </tr>
     ));
-    var result1 = Object.values(this.props.asklists);
-    const asklistItems = this.props.asklists.map(asklist => {
-      return <tr className="tr" key={asklist._id}>
-                <td className="td"><img className="bider_avatar" src={asklist.Avatar_url} alt="loading..." /></td>
-                <td className="td"> { asklist.request_id } </td>
-                <td className="td">
-                  <select id={asklist._id} value={asklist.status} onChange={()=> {this.ChangeAvatar(asklist._id , asklist.request_id , asklist.Avatar_url )}}>
-                    <option value="false">false</option>
-                    <option value="true">true</option>
-                  </select> 
-                </td>
-              </tr>
-    })
+    //const result1 = Object.values(this.props.asklists);
+    const asklistItems2 = this.props.asklists.map(asklist => (
+          <tr key={asklist._id}>
+            <td className="td1"><img className="bider_avatar" src={asklist.Avatar_url} alt="loading..." /></td>
+            <td className="td1">  { asklist.request_id } </td>
+            <td className="td1">
+              <select id={asklist._id} value={asklist.status} onChange={()=> {this.ChangeAvatar(asklist._id , asklist.request_id , asklist.Avatar_url )}}>
+                <option value="false">false</option>
+                <option value="true">true</option>
+              </select> 
+            </td>
+          </tr> 
+      ));
+    var j = 1;
+    const freelancerItems = this.props.freelancers.map(freelancers => (
+      <tr className="tr1" key={freelancers._id} >
+        <td className="td1">{j++}</td>
+        <td className="td1">
+          <input id={freelancers._id} className="freelancer_id" value={freelancers.user_id} disabled/>
+          <input id={freelancers._id + '1'} className="editidinput" style={{display:'none'}}/>
+        </td>
+        <td className="td1">{freelancers.user_skypeid}</td>
+        <td className="td1">
+          <select className="editselect" id={freelancers._id + '2'} value={freelancers.access}>
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>
+          <select className="editselect" id={freelancers._id + '3'} style={{display: 'none'}}>
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>  
+        </td>
+        <td className="td1">
+          <button onClick={()=>{this.onEdit(freelancers._id)}}>Edit</button>
+          <button onClick={()=>{this.onSave(freelancers._id)}}>Save</button>
+        </td>
+      </tr>
+    ))
 
-
-     const avatarItems = this.props.avatars.map(Avatar => {  
-          if(Avatar.ava_level === 1)
-            return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="loading.." style={{opacity:Avatar.ava_status == 1 ? 0.3:1}}  id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status , Avatar.ava_budget)}}/></div>      
-      });
-    const avatarItems1 = this.props.avatars.map(Avatar => {  
-          if(Avatar.ava_level === 2)
-            return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="loading..." style={{opacity:Avatar.ava_status == 1 ? 0.3:1}} id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status, Avatar.ava_budget)}}/></div>      
-      });
-    const avatarItems2 = this.props.avatars.map(Avatar => {  
-          if(Avatar.ava_level === 3)
-            return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="loading..." style={{opacity:Avatar.ava_status == 1 ? 0.3:1}} id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status, Avatar.ava_budget)}}/></div>      
-      });
+   const avatarItems = this.props.avatars.map(Avatar => {  
+        if(Avatar.ava_level === 1)
+          return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="loading.." style={{opacity:Avatar.ava_status == 1 ? 0.3:1}}  id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status , Avatar.ava_budget)}}/></div>      
+    });
+  const avatarItems1 = this.props.avatars.map(Avatar => {  
+        if(Avatar.ava_level === 2)
+          return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="loading..." style={{opacity:Avatar.ava_status == 1 ? 0.3:1}} id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status, Avatar.ava_budget)}}/></div>      
+    });
+  const avatarItems2 = this.props.avatars.map(Avatar => {  
+        if(Avatar.ava_level === 3)
+          return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="loading..." style={{opacity:Avatar.ava_status == 1 ? 0.3:1}} id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status, Avatar.ava_budget)}}/></div>      
+    });
     
     
     return (
@@ -438,25 +545,26 @@ class admin extends Component {
       <div className='mainbody1' id="mainbody1">
         <div className="adminheader">
             <div className="adminlogodiv">  </div>
-            <div className="adminheaderdiv">Faster and Faster , Higher and Higher <button className="adminlogoutbtn" id="adminlogoutbtn" onClick={()=>{this.Logout()}}> Logout</button></div>
+            <div className="adminheaderdiv">Welcome to Admin panel <button className="adminlogoutbtn" id="adminlogoutbtn" onClick={()=>{this.Logout()}}> Logout</button></div>
         </div>
         <div className="contentbody">
           <div className="sidebar1">
             <a onClick={()=>{this.onClick(1)}} className="active" id="ticketa">Tickets</a>
             <a onClick={()=>{this.onClick(2)}} id="avatara">Avatars</a>
+            <a onClick={()=>{this.onClick(3)}} id="freea">Freelancers</a>
           </div>
           <div className="contentss content1" id="content1">
               <div className="postdiv"><img className="postimg" src="http://localhost:3000/images/post.png" alt="loading..." onClick={()=>{this.Post()}} /></div>
-              <table className='table'> 
-                <tr className='tableheader'>
-                  <th className='tableth'>Title</th>
-                  <th className='tableth'>Skills Required</th>
-                  <th className='tableth'>Price</th>
-                  <th className='tableth'>Deadline</th>
-                  <th className='tableth'>Status</th>
-                  <th className='tableth'>Winner</th>
-                  <th className='tableth'>Budget</th>
-                  <th className='tableth'>Winner_deadline</th>
+              <table className='table1' id="admintable"> 
+                <tr className='tableheader1'>
+                  <th className='tableth1'>Title</th>
+                  <th className='tableth1'>Skills Required</th>
+                  <th className='tableth1'>Price</th>
+                  <th className='tableth1'>Deadline</th>
+                  <th className='tableth1'>Status</th>
+                  <th className='tableth1'>Winner</th>
+                  <th className='tableth1'>Budget</th>
+                  <th className='tableth1'>Winner_deadline</th>
                 </tr>
                 {ticketItems} 
               </table>
@@ -482,11 +590,11 @@ class admin extends Component {
                       {this.state.currentTaskskills}
                     </p>
                     <div>
-                      <table className='table bidlisttable'> 
-                        <tr className='tableheader'>
-                          <th className='tableth'>Who</th>
-                          <th className='tableth'>Budget</th>
-                          <th className='tableth'>Deadline</th>
+                      <table className='table bidlisttable' id="admintable"> 
+                        <tr className='tableheader1'>
+                          <th className='tableth1'>Who</th>
+                          <th className='tableth1'>Budget</th>
+                          <th className='tableth1'>Deadline</th>
                         </tr>
                          {biderItems}
                       </table>
@@ -571,46 +679,110 @@ class admin extends Component {
                 </div>
               </div>
 
-            </div>
-            <div className="contentss content2" id="content2">
-              <div className='container4'>
-                <img className="intro_img premium_img" src="http://localhost:3000/images/premium.png" alt="loading..." />
-                <div className="gallery premium">
-                  {avatarItems}
-                </div>
-                <img className="intro_img amateur_img" src="http://localhost:3000/images/amateur.png" alt="loading..." />
-                <div className="gallery Amateur"> 
-                  {avatarItems1}
-                </div>
-                <img className="intro_img basic_img" src="http://localhost:3000/images/basic.png" alt="loading..." />
-                <div className="gallery premium"> 
-                  {avatarItems2}
-                </div>
-              </div>
-
-              <div id="myModal4" class="modal1">
-                <div class="modal-content1">
-                  <div class="modal-header1">
-                    <span class="close" onClick={()=>{this.Close()}}>&times;</span>
-                    <img className="avatarshow" src={this.state.currentAvatarurl} alt="loading..." />
-                    <h3 className="avatarpriceshow"> {this.state.currentAvatarbudget}  </h3> 
-                  </div>
-                  <div class="modal-body1">
-                    <table className='table bidlisttable'> 
-                      <tr className='tableheader'>
-                        <th className='tableth'>Avatar</th>
-                        <th className='tableth'>Who</th>
-                        <th className='tableth'>Status</th>
-                      </tr>
-                       {asklistItems}
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-            </div>
           </div>
+          <div className="contentss content2" id="content2">
+            <div className='container4'>
+              <img className="intro_img premium_img" src="http://localhost:3000/images/premium.png" alt="loading..." />
+              <button className="uploadavatarbtn" onClick={()=>{this.Uploadavatar()}}> Upload New Avatar </button>
+              <div className="gallery premium">
+                {avatarItems}
+              </div>
+              <img className="intro_img amateur_img" src="http://localhost:3000/images/amateur.png" alt="loading..." />
+              <div className="gallery Amateur"> 
+                {avatarItems1}
+              </div>
+              <img className="intro_img basic_img" src="http://localhost:3000/images/basic.png" alt="loading..." />
+              <div className="gallery premium"> 
+                {avatarItems2}
+              </div>
+            </div>
+
+            <div id="myModal4" class="modal1">
+              <div class="modal-content1">
+                <div class="modal-header1">
+                  <span class="close" onClick={()=>{this.Close()}}>&times;</span>
+                  <img className="avatarshow" src={this.state.currentAvatarurl} alt="loading..." />
+                  <h3 className="avatarpriceshow"> {this.state.currentAvatarbudget}  </h3> 
+                </div>
+                <div class="modal-body1">
+                  <table className='table bidlisttable'> 
+                    <tr className='tableheader'>
+                      <th className='tableth'>Avatar</th>
+                      <th className='tableth'>Who</th>
+                      <th className='tableth'>Status</th>
+                    </tr>
+                    {asklistItems2}
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div id="myModal6" class="modal1">
+              <div class="modal-content1" id="postavatarmodalcontent">
+                <div class="modal-header1">
+                  <span class="close" onClick={()=>{this.Close()}}>&times;</span>
+                  <h3 className="avatarpriceshow"> Upload New Avatar  </h3> 
+                </div>
+                <div className="modal-body1">
+                  <div className="up_ava_eachdiv">
+                    <label className="up_ea_la">Path:</label><input className="up_ea_in" type="file" id="ava_path" />
+                  </div>
+                  <div className="up_ava_eachdiv">
+                    <label className="up_ea_la">Price:</label><input className="up_ea_in" id="ava_price" />
+                  </div>
+                  <div className="up_ava_eachdiv">
+                    <label className="up_ea_la">Level:</label><input className="up_ea_in" id="ava_level" />
+                  </div>
+                  <div className="up_ava_eachdiv">
+                    <button className="uploadavatarbtn" onClick={()=>{this.UploadAvatarevent()}}>Post New Avatar </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="permissionmodal" class="modal1">
+              <div class="modal-content1">
+                <div class="modal-header1">
+                  <span class="close" onClick={()=>{this.Close()}}>&times;</span>
+                  <img className="avatarshow" src={this.state.currentAvatarurl} alt="loading..." />
+                  <h3 className="avatarpriceshow"> {this.state.currentAvatarbudget}  </h3> 
+                </div>
+                <div class="modal-body1">
+                  <table className='table bidlisttable'> 
+                    <tr className='tableheader'>
+                      <th className='tableth'>Avatar</th>
+                      <th className='tableth'>Who</th>
+                      <th className='tableth'>Status</th>
+                    </tr>
+                    {asklistItems2}
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="contentss content3" id="content3">
+            <div className='container4'>
+              <table className="table freelancertable">
+                <tr className="tableheader">
+                  <th className="tableth">No</th>
+                  <th className="tableth">UserId</th>
+                  <th className="tableth">Skype</th>
+                  <th className="tableth">Permission</th>
+                  <th className="tableth">Setting</th>
+                </tr>
+                {freelancerItems}
+              </table>
+            </div>
+
+
+          </div>
+         
+
         </div>
+      </div>
     );
   }
 }
@@ -621,9 +793,10 @@ admin.propTypes = {
   getPages: PropTypes.func.isRequired,
   getAvatars: PropTypes.func.isRequired,
   getRequests: PropTypes.func.isRequired,
+  getFreelancers: PropTypes.func.isRequired,
   avatars: PropTypes.array.isRequired,
   posts: PropTypes.array.isRequired,
-  asklists: PropTypes.array.isRequired,
+  avatars: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = state => ({
@@ -632,6 +805,7 @@ const mapStateToProps = state => ({
   pages: state.posts.pages,
   avatars: state.posts.avatars,
   asklists: state.posts.asklists,
+  freelancers: state.posts.freelancers,
 })
 
-export default connect(mapStateToProps , { getTickets, getBiders , getPages , getAvatars , getRequests})(admin);
+export default connect(mapStateToProps , { getTickets, getBiders , getPages , getAvatars , getRequests , getFreelancers })(admin);

@@ -62,7 +62,7 @@ router.post("/auth/login", (req, res) => {
 
     const UserId = req.body.user_id;
     var UserName = "";
-    AuthUser.findOne({ password: UserId }).then(user => {
+    AuthUser.findOne({password: UserId}).then(user => {
         if(!user) {
             return res.status(404).json({ Usernotfound: "User not found"});
         }
@@ -90,6 +90,7 @@ router.post("/auth/login", (req, res) => {
                 });
                 newLeader
                     .save()
+                    .then(user => res.json(user))
                     .catch(err => console.log(err));
             }
         })
@@ -102,7 +103,6 @@ const reqFiles = [];
 router.post("/ticket/post", (req,res) => {
    
     const { errors, isValid } = validateTaskpostinput(req.body);
-
     if (!isValid) {
         return res.status(400).json(errors);
     }
@@ -404,6 +404,7 @@ router.post("/status/changed", (req, res) => {
 router.post("/view/asklist" , (req, res) => {
     console.log(req.body.id);
     AvatarRequests.find({Avatar_url : req.body.id}).then(result=>{
+        console.log("view ask list result" + result[0]);
         res.send(result);
     })
 })
@@ -447,6 +448,7 @@ router.post('/upload-images', upload.array('imgCollection', 36), (req, res, next
 
 })
 
+// admin can left freelancer's review and rating
 router.post("/submit/result" , (req, res)=> {
     console.log(req.body.id + req.body.feedback + req.body.review);
     const filter = { _id: req.body.id };
@@ -456,5 +458,22 @@ router.post("/submit/result" , (req, res)=> {
     })
 });
 
+
+//  admin can get all freelancers 
+router.get("/get/freelancers" , (req, res) => {
+    AuthUser.find().then(result=> {
+        res.send(result);
+    })
+})
+
+// admin update Authuser's data
+router.post("/update/Authuser", (req, res) => {
+    console.log(req.body._id + req.body.access + req.body.user_id);
+    const filter = { _id: req.body._id };
+    var update = {$set: {access: req.body.access , user_id: req.body.user_id , password: req.body._id }};
+    let doc = AuthUser.updateOne(filter, update , function(err , result) {
+        res.send(result);
+    })
+})
 
 module.exports = router;
