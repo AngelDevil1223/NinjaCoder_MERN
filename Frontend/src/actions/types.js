@@ -6,3 +6,4 @@ export const LOGOUT = 'LOGOUT';
 export const GET_BIDERS = 'GET_BIDERS'; 
 export const GET_PAGES = 'GET_PAGES';
 export const GET_REQUESTS = 'GET_REQUESTS';
+export const GET_FREELANCERS = 'GET_FREELANCERS';

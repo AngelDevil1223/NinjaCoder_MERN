@@ -24,7 +24,7 @@ class Leader extends Component {
         <div className='container2'>
           <table className='table'> 
             <tr className='tableheader'>
-              <th className='tableth'>N o</th>
+              <th className='tableth'>No</th>
               <th className='tableth'>UserID</th>
               <th className='tableth'>Profit($)</th>
               <th className='tableth'>Success(%)</th>

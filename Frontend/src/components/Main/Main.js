@@ -124,13 +124,13 @@ class Main extends Component {
             </div>
             <div className='log_out'>
               <div className="user_avatar">
-                <div className="logbtndiv">
-                  <button className="logout_btn" onClick={this.Logout}>Logout</button>
-                </div>
                 <img className="user_avatar" src={this.state.currentUser_avatar} alt="loading..." />
               </div>
               <div className="user_div">
                 <input type="text" className="user_id_input" value={this.state.currentUser} id="user_id_input" />
+              </div>
+              <div className="logbtndiv">
+                <button className="logout_btn" onClick={this.Logout}>Logout</button>
               </div>
             </div>
           </div>

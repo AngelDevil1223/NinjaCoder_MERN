@@ -99,7 +99,7 @@ class Avatar extends Component {
                 <img className="img" src={this.state.currentAvatarurl} alt="loading..." />
               </div>
               <div className="budgetdiv">
-                <label className="label">Cost</label><input className="budgetinput" value={this.state.currentAvatarbudget} disabled/>
+                <label className="label">Cost:  $ <strong>{this.state.currentAvatarbudget}</strong> USD</label>
               </div>
               <div className="buydiv">
                 <button className="buybtn" id="buybtn" onClick={()=>{this.Buy()}}>Buy</button>

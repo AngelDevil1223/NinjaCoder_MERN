@@ -31,7 +31,8 @@
 }
 .contentbody {
   width: 100%;
-  height: 85.5vh;
+  height: 83vh;
+  overflow: auto;
   display: flex;
   flex-direction: row;
 }
@@ -104,7 +105,17 @@
   height: 100%;
   margin: auto;
 }
+.content3 {
+  padding: 1px 16px;
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
 #content2 {
+  display: none;
+}
+#content3 {
   display: none;
 }
 .container4 {
@@ -179,10 +190,13 @@
   margin: auto;
 }
 .pageicon {
-  width: 65px;
-  height: 65px;
+  width: 45px;
+  height: 45px;
   display: inline-block;
   border: none !important;
+    background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
   box-shadow: 2px #dddddd;
 }
 .pageicon:hover {
@@ -225,10 +239,11 @@
   padding: 10px;
   float: right;
   color: black;
-  margin-left: 50px;
+  margin-left: 250px;
+  box-shadow: 3px 3px 3px #333;
 }
 select {
-  color: red;
+  color: black;
   height: 30px;
 }
 .avatarshow {
@@ -261,6 +276,64 @@ select {
 }
 #description_textarea {
   margin-bottom: 50px;
+}
+#admintable th {
+  font-size: 20px;
+  background-color: black;
+}
+#adminatable td, tr {
+  padding: 5px;
+}
+#admintabletd {
+  padding: 5px;
+}
+.td1 {
+  text-align: center;
+}
+.freelancer_id {
+  border: none;
+}
+.editidinput {
+  border: none;
+  margin-left: 7%; 
+}
+.editselect {
+  margin-left: 34%;
+  color: black;
+}
+.uploadavatarbtn {
+  font-size: 20px;
+  padding: 10px 5px 10px 5px;
+  border-radius: 0px 10px 0px 10px;
+  color: white;
+  background-color: black;
+  box-shadow: 3px 3px 3px #333333;
+  margin-left: 130px;
+}
+.up_ava_eachdiv {
+  width: 400px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.up_ea_la {
+  font-size: 20px;
+  color: white;
+  margin-right: 20px;
+}
+#ava_path {
+  width: 250px;
+  display: inline-block;
+  margin-left: 10px;
+}
+.up_ea_in {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 5px 10px 5px 15px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #dddddd;
+}
+#postavatarmodalcontent {
+  width: 60%;
 }
 @media screen and (max-width: 915px) {
   .adminlogodiv {

@@ -43,11 +43,12 @@
 }
 .log_out {
 	display: inline-block;
-	padding: 20px;
+	padding-left: 60px;
 	padding-bottom: 0px;
-	padding-top: 6%;
+	padding-top: 40px;
 	width: 15%;
 }
+
 .tab_1 {
 	font-weight: bold;
 	text-decoration: underline;
@@ -60,18 +61,10 @@
 	display: inline-block;
 	width: 100%;
 }
-.user_avatar .logbtndiv {
+.logbtndiv {
 	display: none;
-	bottom: 10%;
-	font-size: 18px;
-	border-radius: 10px;
-	border: none;
-	padding: 10px;
-	position: absolute;
-	z-index: 1;
-	top: 7%;
 }
-.user_avatar:hover .logbtndiv {
+.log_out:hover .logbtndiv {
 	display: block;
 }
 .user_avatar {
