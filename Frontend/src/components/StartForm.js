@@ -48,11 +48,10 @@ class StartForm extends Component {
           }
         })
       .catch(err => {
-        alert("error");
         let str1 = String(err);
         str1 = str1.slice(-1);
         errinput = document.getElementById("err_id");
-        errinput.setAttribute("style", "display: block; background-color: rgb(191,191,191); border: none; margin-left: 150px; font-size:25px; color: white;");
+        errinput.setAttribute("style", "display: block;");
         switch(str1) {
           case '0':
             errorcode = "The field is required";

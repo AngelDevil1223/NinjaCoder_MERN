@@ -53,7 +53,6 @@ router.post("/auth/register", (req,res) => {
 
 // freelancer login
 router.post("/auth/login", (req, res) => {
-    console.log("this is user_id" + req.body.user_id);
     const { errors, isValid } = validateLoginInput(req.body);
 
     if (!isValid) {

@@ -247,7 +247,7 @@ class admin extends Component {
       maininfo.pagenum = this.state.currentPage;
       maininfo.pagesize = 4;
       this.props.getPages(maininfo);
-      if(selectValue == "Complete" || selectValue == "InComplete" )
+      if(selectValue == "Complete" || selectValue == "Incomplete" )
         this.goToModal(id);
     })
   }
@@ -472,17 +472,17 @@ class admin extends Component {
                                 <option value="Not Assigned">Not Assigned</option>
                                 <option value="Assigned">Assigned</option>
                                 <option value="Progressing">Progressing</option>
-                                <option value="InComplete">InComplete</option>
+                                <option value="Incomplete">Incomplete</option>
                                 <option value="Complete">Complete</option>
                               </select></td>
-          <td className="td1" id="admintabletd"> <img className="winneravatar" src={ticket.winner_avatar} alt="loading..." />{ticket.ticket_winner} </td>
+          <td className="td1" id="admintabletd"> <img className="winneravatar" src={ticket.winner_avatar} alt="none" />{ticket.ticket_winner} </td>
           <td className="td1" id="admintabletd"> {ticket.ticket_budget} </td>
           <td className="td1" id="admintabletd"> {ticket.winner_deadline} </td>
         </tr>
       ));
     const biderItems = this.props.biders.map(bider => (
         <tr className="tr1" key={bider._id} onClick={()=>{this.selectBider(bider)}} >
-          <td className="td1"><img className="bider_avatar" src={bider.bider_url} alt="loading..." /> {bider.bider_id}  </td>
+          <td className="td1"><img className="bider_avatar" src={bider.bider_url} alt="none" /> {bider.bider_id}  </td>
           <td className="td1"> {bider.bid_price} </td>
           <td className="td1"> {bider.bid_deadline} </td>
         </tr>
@@ -490,7 +490,7 @@ class admin extends Component {
     //const result1 = Object.values(this.props.asklists);
     const asklistItems2 = this.props.asklists.map(asklist => (
           <tr key={asklist._id}>
-            <td className="td1"><img className="bider_avatar" src={asklist.Avatar_url} alt="loading..." /></td>
+            <td className="td1"><img className="bider_avatar" src={asklist.Avatar_url} alt="none" /></td>
             <td className="td1">  { asklist.request_id } </td>
             <td className="td1">
               <select id={asklist._id} value={asklist.status} onChange={()=> {this.ChangeAvatar(asklist._id , asklist.request_id , asklist.Avatar_url )}}>
@@ -532,11 +532,11 @@ class admin extends Component {
     });
   const avatarItems1 = this.props.avatars.map(Avatar => {  
         if(Avatar.ava_level === 2)
-          return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="loading..." style={{opacity:Avatar.ava_status == 1 ? 0.3:1}} id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status, Avatar.ava_budget)}}/></div>      
+          return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="none" style={{opacity:Avatar.ava_status == 1 ? 0.3:1}} id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status, Avatar.ava_budget)}}/></div>      
     });
   const avatarItems2 = this.props.avatars.map(Avatar => {  
         if(Avatar.ava_level === 3)
-          return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="loading..." style={{opacity:Avatar.ava_status == 1 ? 0.3:1}} id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status, Avatar.ava_budget)}}/></div>      
+          return <div className="contain_img" key={Avatar._id}><img className="level" src={Avatar.ava_url} alt="none" style={{opacity:Avatar.ava_status == 1 ? 0.3:1}} id={Avatar.ava_url} onClick={() => { this.avatarClick(Avatar.ava_url , Avatar.ava_status, Avatar.ava_budget)}}/></div>      
     });
     
     
@@ -554,7 +554,7 @@ class admin extends Component {
             <a onClick={()=>{this.onClick(3)}} id="freea">Freelancers</a>
           </div>
           <div className="contentss content1" id="content1">
-              <div className="postdiv"><img className="postimg" src="http://localhost:3000/images/post.png" alt="loading..." onClick={()=>{this.Post()}} /></div>
+              <div className="postdiv"><img className="postimg" src="http://localhost:3000/images/post.png" alt="none" onClick={()=>{this.Post()}} /></div>
               <table className='table1' id="admintable"> 
                 <tr className='tableheader1'>
                   <th className='tableth1'>Title</th>
@@ -643,7 +643,7 @@ class admin extends Component {
                 <div class="modal-content1">
                   <div class="modal-header1" id="bidermodalheader">
                     <span class="close" onClick={()=>{this.Close()}}>&times;</span>
-                    <img className="currentBiderAvatar" src={this.state.currentBideravatar} alt="loading..." /><h2 className="currentBidername">{this.state.currentBidername}</h2>
+                    <img className="currentBiderAvatar" src={this.state.currentBideravatar} alt="none" /><h2 className="currentBidername">{this.state.currentBidername}</h2>
                   </div>
                   <div class="modal-body1">
                     <label className="deslabel">Bid Sentence</label><textarea className="postdes" id="biddes" disabled/>
@@ -682,16 +682,16 @@ class admin extends Component {
           </div>
           <div className="contentss content2" id="content2">
             <div className='container4'>
-              <img className="intro_img premium_img" src="http://localhost:3000/images/premium.png" alt="loading..." />
+              <img className="intro_img premium_img" src="http://localhost:3000/images/premium.png" alt="none" />
               <button className="uploadavatarbtn" onClick={()=>{this.Uploadavatar()}}> Upload New Avatar </button>
               <div className="gallery premium">
                 {avatarItems}
               </div>
-              <img className="intro_img amateur_img" src="http://localhost:3000/images/amateur.png" alt="loading..." />
+              <img className="intro_img amateur_img" src="http://localhost:3000/images/amateur.png" alt="none" />
               <div className="gallery Amateur"> 
                 {avatarItems1}
               </div>
-              <img className="intro_img basic_img" src="http://localhost:3000/images/basic.png" alt="loading..." />
+              <img className="intro_img basic_img" src="http://localhost:3000/images/basic.png" alt="none" />
               <div className="gallery premium"> 
                 {avatarItems2}
               </div>
@@ -701,7 +701,7 @@ class admin extends Component {
               <div class="modal-content1">
                 <div class="modal-header1">
                   <span class="close" onClick={()=>{this.Close()}}>&times;</span>
-                  <img className="avatarshow" src={this.state.currentAvatarurl} alt="loading..." />
+                  <img className="avatarshow" src={this.state.currentAvatarurl} alt="none" />
                   <h3 className="avatarpriceshow"> {this.state.currentAvatarbudget}  </h3> 
                 </div>
                 <div class="modal-body1">
@@ -745,7 +745,7 @@ class admin extends Component {
               <div class="modal-content1">
                 <div class="modal-header1">
                   <span class="close" onClick={()=>{this.Close()}}>&times;</span>
-                  <img className="avatarshow" src={this.state.currentAvatarurl} alt="loading..." />
+                  <img className="avatarshow" src={this.state.currentAvatarurl} alt="none" />
                   <h3 className="avatarpriceshow"> {this.state.currentAvatarbudget}  </h3> 
                 </div>
                 <div class="modal-body1">

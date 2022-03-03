@@ -6,7 +6,7 @@ body {
 	width: 570px;
 	background-color: rgb(191,191,191);
 	margin: auto;
-	margin-top: 150px;
+	margin-top: 220px;
 	border-radius: 30px 5px 30px 5px;
 	padding-bottom: 20px;
 	box-shadow: 8px 8px 8px #e6e6e6;
@@ -98,7 +98,6 @@ body {
 	margin: auto;
 	display: none;
 }
-
 .Form_img {
 	height: 50px;
 	width: 185px;
@@ -139,4 +138,73 @@ body {
 }
 #err_id {
 	width: 400px;
+	 background-color: rgb(191,191,191); 
+	 border: none; 
+	 margin-left: 150px; 
+	 font-size:25px; 
+	 color: white;
+}
+@media screen and (max-width: 591px) {
+	.Form {
+		width: 375px;
+		padding-top: 1px;
+	}
+	.Form_p {
+		width: 75px;
+		margin-top: 15px;
+	}
+	.Form_p1 {
+		width: 115px;
+		margin-top: 15px;
+	}
+	.Form_text {
+		font-size: 35px;
+		background-color: rgb(191, 191, 191);
+	}
+	.Form_content {
+		width: 365px;
+	}
+	.Form_id {
+		font-size: 30px;
+	}
+	.Form_input {
+		font-size: 25px;
+		height: 40px;
+		margin-top: 5px;
+	}
+	.Form_footer {
+		width: 345px;
+	}
+	.toimg {
+		width: 250px;
+		height: 50px;
+	}
+	.hereimg {
+		width: 90px;
+		height: 45px;
+	}
+	.hereimg:hover {
+		width: 95px;
+		height: 50px;
+	}
+	.Form_footer1 {
+		width: 345px;
+	}
+	.toimg1 {
+		width: 250px;
+		height: 50px;
+	}
+	.hereimg1 {
+		width: 90px;
+		height: 45px;
+	}
+	.hereimg1:hover {
+		width: 95px;
+		height: 50px;
+	}
+	#err_id {
+		width: 300px;
+		margin-left: 60px;
+		font-size: 20px;
+	}
 }

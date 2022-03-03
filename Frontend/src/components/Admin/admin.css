@@ -185,8 +185,7 @@
   margin-left: 350px;
 }
 .pagenumbtngroup {
-
-  width: 260px;
+  width: 180px;
   margin: auto;
 }
 .pageicon {
@@ -347,7 +346,6 @@ select {
     margin-top: 35px;
   }
 }
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
@@ -366,7 +364,6 @@ select {
   
   }
 }
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
   .sidebar a {
     text-align: center;
