@@ -14,12 +14,17 @@ class Register extends Component {
 
   register() {
     global_skype_id = document.getElementById("skype_id").value;
+    if(global_skype_id == "")
+    {
+      alert("The field is required!");
+      return;
+    }
     axios.post(`http://localhost:5000/freelancing/api/auth/register`, { user_skypeid: global_skype_id })
       .then(res => {
-        alert("success");
+        alert("Register success!");
       })
        .catch(err => {
-        alert(err);
+        alert("You registered already!");
        });
   }
 

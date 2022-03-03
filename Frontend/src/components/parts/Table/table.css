@@ -1,12 +1,12 @@
 .tr {
 	text-align: center;
-	font-size: 18px;
-	padding: 3px;
+	font-size: 15px;
+	padding: 1px;
 	color: white;
 	z-index: 2;
 }
 .td {
-	padding: 3px;
+	padding: 1px;
 }
 .container2 {
 	box-sizing: border-box;
@@ -19,11 +19,11 @@
 	width: 120%;
 }
 th {
-	font-size: 20px;
+	font-size: 15px;
 	color: white;
 	font-family: sans-serif;
 	text-align: center;
-	padding: 3px;
+	padding: 1px;
 }
 tr:nth-child(even){background-color: rgb(191, 191, 191);}
 tr:nth-child(odd){background-color: #888888;}
@@ -33,11 +33,11 @@ tr:hover {
 }
 table {
 	opacity: 0.8;
-	padding: 3px;
-	width: 100% !important;
+	padding: 1px;
+	width: 100%;
 }
 .tableheader {
-	background-color: black !important;
+	background-color: black;
 	padding: 3px;
 }
 .bider_avatar {
@@ -264,6 +264,7 @@ h4 {color: white;}
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 10px;
+	text-align: right;
 }
 .deadline_div {
 	margin-top: 20px;
@@ -299,11 +300,6 @@ h4 {color: white;}
 	color: white;
 	margin-left: 50px;
 }
-/*.notbid {
-	position: absolute;
-	margin-top: -100px;
-	z-index: 1;
-}*/
 .rowcnt {
 	font-size: 22px;
 	color: white;
@@ -335,7 +331,6 @@ h4 {color: white;}
 		height: 65vh;
 	}
 }
-
 @media only screen and (max-width: 738px) {
 	.container2 {
 		width: 100%;
@@ -356,30 +351,17 @@ h4 {color: white;}
 		margin-right: 0px;
 	}
 }
-@media only screen and (max-width: 501px) {
-	.tableth {
-		font-size: 15px;
-		padding: 2px;
-	}
-	.tr {
-		font-size: 13px;
-		padding: 1px;
-	}
-	.td {
-		padding: 1px;
-	}
-}
-@media only screen and (max-width: 422px) {
-	.container2 {
+@media only screen and (max-width: 599px) {
+	.container3 {
 		width: 100%;
 	}
-	.tableth {
-		font-size: 12px;
+	#tickettableth th{
+		font-size: 10px;
+		padding: 0px;
 	}
-	.tr {
-		font-size: 11px;
-	}
-	.td {
-		padding: 1px;
+	#tickettabletr td{
+		font-size: 10px;
+		padding: 5px;
 	}
 }
+
